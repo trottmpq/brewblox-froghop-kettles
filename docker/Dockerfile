@@ -1,7 +1,7 @@
 FROM python:3.7 as base
 
-COPY ./dist /app/dist
-COPY ./requirements.txt /app/requirements.txt
+COPY docker/dist /app/dist
+COPY docker/requirements.txt /app/requirements.txt
 
 ENV PIP_EXTRA_INDEX_URL=https://www.piwheels.org/simple
 ENV PIP_FIND_LINKS=/wheeley
