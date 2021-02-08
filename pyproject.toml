@@ -1,8 +1,11 @@
 [tool.poetry]
-name = "YOUR-PACKAGE"
+name = "brewblox-froghop-kettles"
 version = "0.1.0"
-description = "ADD DESCRIPTION HERE"
-authors = ["Code Fairies Inc <noreply@santa.com>"]
+description = "service for Frog Hop Brewery Kettles"
+authors = [
+    "Matthew Trott <trottmpq@fastmail.com>",
+    "Henry Lovett <seblovett@gmail.com>"
+]
 license = "GPL-3.0"
 readme = "README.md"
 
@@ -20,6 +23,7 @@ autopep8 = "^1.5"
 pytest = "^5.4.1"
 flake8-quotes = "^3.0.0"
 aresponses = "^2.0.0"
+mock = "^4.0.3"
 
 [build-system]
 requires = ["poetry>=0.12"]

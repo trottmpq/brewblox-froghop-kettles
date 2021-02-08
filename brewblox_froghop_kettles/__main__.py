@@ -6,12 +6,12 @@ from argparse import ArgumentParser
 
 from brewblox_service import brewblox_logger, http, mqtt, scheduler, service
 
-from YOUR_PACKAGE import http_example, publish_example, subscribe_example
+from brewblox_froghop_kettles import http_example, publish_example, subscribe_example
 
 LOGGER = brewblox_logger(__name__)
 
 
-def create_parser(default_name='YOUR_PACKAGE') -> ArgumentParser:
+def create_parser(default_name='brewblox_froghop_kettles') -> ArgumentParser:
     # brewblox-service has some default arguments
     # We can add more arguments here before sending the parser back to brewblox-service
     # The parsed values for all arguments are placed in app['config']
@@ -64,8 +64,8 @@ def main():
     #
     # See brewblox_service.service for more details on how arguments are parsed.
     #
-    # The default value is "YOUR_PACKAGE" (provided in service.create_app()).
-    # This means you can now access the example/endpoint as "/YOUR_PACKAGE/example/endpoint"
+    # The default value is "brewblox_froghop_kettles" (provided in service.create_app()).
+    # This means you can now access the example/endpoint as "/brewblox_froghop_kettles/example/endpoint"
     service.furnish(app)
 
     # service.run() will start serving clients async

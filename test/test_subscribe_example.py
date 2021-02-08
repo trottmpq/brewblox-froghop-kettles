@@ -6,7 +6,7 @@ import pytest
 from brewblox_service.testing import matching
 from mock import AsyncMock
 
-from YOUR_PACKAGE import subscribe_example
+from brewblox_froghop_kettles import subscribe_example
 
 TESTED = subscribe_example.__name__
 
