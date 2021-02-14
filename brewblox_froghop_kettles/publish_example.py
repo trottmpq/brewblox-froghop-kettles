@@ -1,13 +1,16 @@
 """
 Example on how to set up a feature that polls data, and publishes to the eventbus.
 """
-
+# import time
 import asyncio
 
 from aiohttp import web
 from brewblox_service import brewblox_logger, features, http, mqtt, repeater
 
 LOGGER = brewblox_logger(__name__)
+
+# def time_ms():
+#     return time.time_ns() // 1000000
 
 
 class PublishingFeature(repeater.RepeaterFeature):
@@ -30,7 +33,7 @@ class PublishingFeature(repeater.RepeaterFeature):
         self.name = self.app['config']['name']
         self.topic = self.app['config']['history_topic'] + '/froghop-kettles'
         self.interval = self.app['config']['poll_interval']
-
+        self.stateTopic = self.app['config']['state_topic'] + f'/{self.name}'
         # You can prematurely exit here.
         # Raise RepeaterCancelled(), and the base class will stop without a fuss.
         # run() will not be called.
@@ -67,6 +70,20 @@ class PublishingFeature(repeater.RepeaterFeature):
                                'key': self.name,
                                'data': data
                            })
+        # timestamp = time_ms()
+        colour_data = 'Test'
+
+        await mqtt.publish(self.app,
+                        self.stateTopic + "/Black",
+                        {
+                            "key": self.name,
+                            "type": "Tilt.state",
+                            "colour": "Black",
+                            "timestamp": 1.000,
+                            "data": colour_data,
+                        },
+                        err=False,
+                        retain=True)
 
 
 def setup(app: web.Application):
