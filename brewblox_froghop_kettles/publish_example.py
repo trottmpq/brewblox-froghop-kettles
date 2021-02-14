@@ -28,7 +28,7 @@ class PublishingFeature(repeater.RepeaterFeature):
         # `name` and `history_topic` are defined by the brewblox-service arguments
         # `poll_interval` is defined in __main__.create_parser()
         self.name = self.app['config']['name']
-        self.topic = self.app['config']['history_topic']
+        self.topic = self.app['config']['history_topic'] + '/froghop-kettles'
         self.interval = self.app['config']['poll_interval']
 
         # You can prematurely exit here.
