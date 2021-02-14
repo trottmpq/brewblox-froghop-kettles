@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 
 from brewblox_service import brewblox_logger, http, mqtt, scheduler, service
 
-from brewblox_froghop_kettles import http_example, publish_example, subscribe_example, publish_temperature
+from brewblox_froghop_kettles import http_example, publish_example, subscribe_example
 
 LOGGER = brewblox_logger(__name__)
 
@@ -55,9 +55,9 @@ def main():
     # In setup() they register everything that must be done before the service starts
     # It's not required to use this pattern, but it makes code easier to understand
     subscribe_example.setup(app)
-    # publish_example.setup(app)
+    publish_example.setup(app)
     http_example.setup(app)
-    publish_temperature.setup(app)
+    # publish_temperature.setup(app)
 
     # Add all default endpoints, and adds prefix to all endpoints
     #
